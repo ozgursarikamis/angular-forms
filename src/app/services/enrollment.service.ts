@@ -6,7 +6,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class EnrollmentService {
-  serviceUrl = '';
+  serviceUrl = 'http://localhost:3000/enroll';
   constructor(private http: HttpClient) { }
 
   enroll(user: User) {
