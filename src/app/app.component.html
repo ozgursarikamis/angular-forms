@@ -7,9 +7,10 @@
 
     <div class="form-group">
       <label>Name</label>
-      <input type="text" name="userName" class="form-control" [(ngModel)]="userModel.name" />
+      <input #name="ngModel" required type="text" name="userName" class="form-control" [(ngModel)]="userModel.name" />
     </div>
-
+    Untouched: {{ name.untouched }} <br />
+    Pristine: {{ name.pristine }}
     <div class="form-group">
       <label>Email</label>
       <input name="email" type="email" class="form-control" [(ngModel)]="userModel.email" />
