@@ -10,7 +10,7 @@
       <input #name="ngModel" required type="text" name="userName" 
       [class.is-invalid]="name.invalid && name.touched"
       class="form-control" [(ngModel)]="userModel.name" />
-      <small [class.d-none]="name.valid || name.untouched">Name is required</small>
+      <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
     </div>
     Untouched: {{ name.untouched }} <br />
     Pristine: {{ name.pristine }}
