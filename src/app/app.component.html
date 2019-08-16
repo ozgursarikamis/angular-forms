@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <h1>Bootcamp Enrollment Form</h1>
   <form #userForm="ngForm">
     {{ userForm.value | json }}
@@ -7,7 +7,9 @@
 
     <div class="form-group">
       <label>Name</label>
-      <input #name="ngModel" required type="text" name="userName" class="form-control" [(ngModel)]="userModel.name" />
+      <input #name="ngModel" required type="text" name="userName" 
+      [class.is-invalid]="name.invalid"
+      class="form-control" [(ngModel)]="userModel.name" />
     </div>
     Untouched: {{ name.untouched }} <br />
     Pristine: {{ name.pristine }}
