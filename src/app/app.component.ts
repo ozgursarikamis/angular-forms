@@ -11,6 +11,7 @@ export class AppComponent {
   topics = ['Angular', 'React', 'Vue'];
   userModel = new User('', 'rob@test.com', '5556665566', 'default', 'evening', true);
   submitted = false;
+  errorMessage = '';
 
   constructor(private enrollmentservice: EnrollmentService) { }
   topicHasError = true;
@@ -27,7 +28,7 @@ export class AppComponent {
     this.enrollmentservice.enroll(this.userModel)
       .subscribe(
         data => { console.log('Post Success:', data); },
-        error => { console.log('Error: ' + error.message); }
+        error => { this.errorMessage = error.statusText; }
       );
   }
 }

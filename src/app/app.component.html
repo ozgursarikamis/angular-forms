@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Bootcamp Enrollment Form</h1>
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
   <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()" *ngIf="!submitted">
     <!-- {{ userForm.value | json }}
     <hr />
@@ -17,7 +18,7 @@
       </small>
     </div>    
     <div>
-      Form is valid? : {{ userForm.form.valid }}
+      Form is valid? : {{ userForm.form.valid }} 
     </div>
     <hr />
 
