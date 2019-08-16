@@ -29,5 +29,9 @@ export class AppComponent {
         postalCode: 'postal code'
       }
     });
+
+    this.registrationForm.patchValue({
+      username: 'Özgür'
+    });
   }
 }
