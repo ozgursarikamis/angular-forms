@@ -15,6 +15,9 @@ export class AppComponent {
       city: ['Van'], state: [''], postalCode: ['']
     })
   });
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder) { }
+
+  get username() {
+    return this.registrationForm.get('username');
   }
 }
