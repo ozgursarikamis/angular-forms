@@ -1,23 +1,24 @@
 <div class="container">
   <h2>Registration Form</h2>
-  <hr />  
+  <hr />
   {{ registrationForm.value | json }}
   <hr />
 
   <form [formGroup]="registrationForm">
     <div class="form-group">
       <label>Username</label>
-      <input 
-        [class.is-invalid]="username.invalid && 
+      <input
+        [class.is-invalid]="username.invalid &&
                             username.touched"
           formControlName="username" type="text" class="form-control">
-        <!-- <small class="alert alert-danger" 
+        <!-- <small class="alert alert-danger"
           [class.d-none]="username.valid || username.untouched">
           Username is required
         </small> -->
         <div *ngIf="username.invalid && registrationForm.touched" class="alert alert-danger">
           <small *ngIf="username.errors?.required" class="text-danger">Username is required.</small>
           <small *ngIf="username.errors?.minlength" class="text-danger">Username must be at least 3 characters.</small>
+          <small *ngIf="username.errors?.forbiddenName" class="text-danger">{{ username.value }} is not allowed.</small>
         </div>
     </div>
     <div class="form-group">
@@ -34,12 +35,12 @@
             <label>City</label>
             <input formControlName="city" type="text" class="form-control">
           </div>
-      
+
           <div class="form-group">
             <label>State</label>
             <input formControlName="state" type="text" class="form-control">
           </div>
-      
+
           <div class="form-group">
             <label>Postal Code</label>
             <input formControlName="postalCode" type="text" class="form-control">
@@ -47,6 +48,6 @@
     </div>
 
     <button class="btn btn-primary" type="submit">Register</button>
-    <button (click)="loadApiData()" class="btn btn-secondary ml-2" type="submit">Load API Data</button>
+<!--    <button (click)="loadApiData()" class="btn btn-secondary ml-2" type="submit">Load API Data</button>-->
   </form>
 </div>
