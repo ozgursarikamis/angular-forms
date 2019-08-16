@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Bootcamp Enrollment Form</h1>
   <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
-  <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()" *ngIf="!submitted">
+  <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit(userForm)" *ngIf="!submitted">
     <!-- {{ userForm.value | json }}
     <hr />
     {{ userModel | json }}
