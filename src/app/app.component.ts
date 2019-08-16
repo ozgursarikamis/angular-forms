@@ -17,4 +17,17 @@ export class AppComponent {
       postalCode: new FormControl(),
     })
   });
+
+  loadApiData() {
+    this.registrationForm.setValue({
+      username: 'Bruce',
+      password: 'test',
+      confirmPassword: 'test',
+      address: {
+        city: 'City',
+        state: 'State',
+        postalCode: 'postal code'
+      }
+    });
+  }
 }
