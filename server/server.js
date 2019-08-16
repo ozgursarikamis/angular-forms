@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (request, response) => {
-    response.send("Hello From Server");
+    response.send("Hello From Server. This is Özgür.");
 });
 
 app.post('/enroll', (request, response) => {
