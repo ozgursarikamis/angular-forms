@@ -1,23 +1,26 @@
 <div class="container-fluid">
   <h1>Bootcamp Enrollment Form</h1>
-  <form>
+  <form #userForm="ngForm">
+
+    {{ userForm.value | json }}
+
     <div class="form-group">
       <label>Name</label>
-      <input type="text" class="form-control" />
+      <input type="text" name="userName" class="form-control" ngModel />
     </div>
 
     <div class="form-group">
       <label>Email</label>
-      <input type="email" class="form-control" />
+      <input name="email" type="email" class="form-control" ngModel/>
     </div>
 
     <div class="form-group">
       <label>Phone</label>
-      <input type="tel" class="form-control" />
+      <input name="phone" ngModel type="tel" class="form-control" />
     </div>
 
     <div class="form-group">
-      <select class="custom-select">
+      <select name="topic" class="custom-select" ngModel>
         <option selected>I am Interested In</option>
         <option *ngFor="let topic of topics">{{ topic }}</option>
       </select>
@@ -26,18 +29,20 @@
     <div class="mb-3">
       <label>Time Preference</label>
       <div class="form-check">
-        <input type="radio" class="form-check-input" name="timePreference" value="morning">
+        <input ngModel type="radio" class="form-check-input"  name="timePreference" value="morning">
         <label class="form-check-label">Morning (9 AM- 12 PM)</label>
       </div>
       <div class="form-check">
-          <input type="radio" class="form-check-input" name="timePreference" value="evening">
+          <input ngModel type="radio" class="form-check-input" name="timePreference" value="evening">
           <label class="form-check-label">Evening (5 PM- 8 PM)</label>
       </div>
     </div>
 
     <div class="form-check mb-3">
-      <input type="checkbox" class="form-check-input">
+      <input name="sendPromotionalEmail" ngModel type="checkbox" class="form-check-input">
       <label class="form-check-label">Send me promotional offers</label>
     </div>
+
+    <button class="btn btn-secondary" type="submit">Submit Form</button>
   </form>
 </div>
