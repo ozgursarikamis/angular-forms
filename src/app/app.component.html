@@ -45,6 +45,13 @@
         <label>Email</label>
         <input [class.is-invalid]="email.invalid && email.touched" 
           type="text" formControlName="email" class="form-control">
+          <button type="button" class="btn btn-secondary btn-sm m-2"
+            (click)="addAlternateEmails()"
+          >Add Alternate Email</button>
+          <div formArrayName="alternateEmails"
+             *ngFor="let email of alternateEmails.controls; let i = index">
+            <input type="text" class="form-control my-1" [formControlName]="i">
+          </div>
         <div class="alert alert-danger" [class.d-none]="email.valid || email.untouched">
           If you want to subscribe, you need to provide a valid e-mail address.
         </div>
