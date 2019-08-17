@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { forbiddenUsernamesValidator } from './shared/username.validator';
 import { passwordValidator } from './shared/password.validator';
+import { RegistrationService } from './services/registration.service';
 
 @Component({
   selector: 'app-root',
@@ -43,7 +44,7 @@ export class AppComponent implements OnInit {
       });
   }
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private registrationService: RegistrationService) { }
 
   get username() {
     return this.registrationForm.get('username');
@@ -60,5 +61,14 @@ export class AppComponent implements OnInit {
   addAlternateEmails() {
     this.alternateEmails.push(this.formBuilder.control(''));
     console.log('this.alternateEmails :', this.alternateEmails);
+  }
+
+  registrationFormSubmitted() {
+    console.log(this.registrationForm.value);
+    this.registrationService.register(this.registrationForm.value)
+      .subscribe(
+        (response: any) => console.log('response', response),
+        (error: any) => console.log('Error', error)
+      );
   }
 }
